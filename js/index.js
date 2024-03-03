@@ -86,7 +86,7 @@ const cardAll = async (newText)=> {
             btnDiv.appendChild(addDiv);
         });
         
-    });
+    });spinner(false);
 }
 
 
@@ -127,7 +127,7 @@ const newCard = async()=>{
 
 
 const searchBtn = ()=>{
-    
+    spinner(true);
     const searchField = document.getElementById('searchId');
     const searchText =searchField.value;
     cardAll(searchText)
@@ -147,4 +147,3 @@ searchBtn();
 newCard();
 
 
-// cardAll();
