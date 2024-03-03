@@ -4,7 +4,7 @@ const cardAll = async ()=> {
     const apiLink = await fetch("https://openapi.programming-hero.com/api/retro-forum/posts");
     const post = await apiLink.json();
     const allPost = post.posts;
-    
+  
     const newContainer = document.getElementById('input-card');
     allPost.forEach((items) => {
     const newDiv = document.createElement('div');
@@ -39,7 +39,7 @@ const cardAll = async ()=> {
                         <div class="flex gap-3">
                             <img src="images/time.png" alt="">
                             <p><span>${items.posted_time}</span> min</p>
-                        </div>
+                        </div> 
                     </div>
                     <div  class="btn my-btn border-none bg-gray-300">
                         <img src="images/mgs.png" alt="">
@@ -53,7 +53,18 @@ const cardAll = async ()=> {
         const btn = newDiv.querySelector('.my-btn');
         btn.addEventListener('click', () =>{
             
+            const span = newDiv.querySelector("#clr");
+
+            const total = items.isActive;
             
+            if (total === true) {  
+                span.classList.remove("badge-secondary");
+                span.classList.add("badge-success");  
+                
+            } else {
+                span.classList.remove("badge-success");
+                span.classList.add("badge-secondary");
+            }
 
             count = count+1;
         document.getElementById('markCount').innerText = count;
