@@ -6,6 +6,7 @@ const cardAll = async ()=> {
     const allPost = post.posts;
   
     const newContainer = document.getElementById('input-card');
+    newContainer.textContent='';
     allPost.forEach((items) => {
     const newDiv = document.createElement('div');
         
@@ -26,17 +27,17 @@ const cardAll = async ()=> {
                 </div>
                 <h3 class="text-2xl font-bold">${items.title}</h3>
                 <p>${items.description}</p> <hr class="border-dashed border-black  mr-4 ">
-                <div class="justify-between flex p-5 w-full">
-                    <div class="flex text-center items-center space-x-3">
-                        <div class="flex gap-3">
+                <div class="justify-between flex  pb-5 pt-2 w-full">
+                    <div class="flex text-center items-center space-x-4">
+                        <div class="flex gap-2">
                             <img src="images/table-mgs.png" alt="">
                             <p>${items.comment_count}</p>
                         </div>
-                        <div class="flex gap-3">
+                        <div class="flex gap-2">
                             <img src="images/eye.png" alt="">
                             <p>${items.view_count}</p>
                         </div>
-                        <div class="flex gap-3">
+                        <div class="flex gap-2">
                             <img src="images/time.png" alt="">
                             <p><span>${items.posted_time}</span> min</p>
                         </div> 
@@ -123,6 +124,29 @@ const newCard = async()=>{
         newCard.appendChild(newDivCard);
     });
 }
+
+
+
+
+
+const btnText = async(text)=>{
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${text}`);
+    const code = await res.json();
+    const result = code.category;
+    cardAll(result);
+}
+
+
+const searchBtn = ()=>{
+    const searchField = document.getElementById('searchId');
+    const text =searchField.value;
+    btnText(text); 
+}
+
+
+
+
+
 newCard();
 
 
