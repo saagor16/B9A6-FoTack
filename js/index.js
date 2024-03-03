@@ -1,12 +1,12 @@
 let count = 0;
 
-const cardAll = async ()=> {
-    const apiLink = await fetch("https://openapi.programming-hero.com/api/retro-forum/posts");
+const cardAll = async (newText)=> {
+    const apiLink = await fetch(` https://openapi.programming-hero.com/api/retro-forum/posts?category=${newText}`);
     const post = await apiLink.json();
     const allPost = post.posts;
   
     const newContainer = document.getElementById('input-card');
-    newContainer.innerHTML='';
+    newContainer.textContent="";
     allPost.forEach((items) => {
     const newDiv = document.createElement('div');
         
@@ -126,28 +126,11 @@ const newCard = async()=>{
 }
 
 
-
-
-
-const btnText = async(gory)=>{
-
-    const res = await fetch(` https://openapi.programming-hero.com/api/retro-forum/posts?category=${gory}`);  
-    const code = await res.json();
-    const result = code.category;
-    cardAll(result);
-}
-
-
 const searchBtn = ()=>{
     
     const searchField = document.getElementById('searchId');
-    const gory =searchField.value;
-    if(gory){
-        btnText(gory);
-    }else{
-        alert('plz write category');
-    }
-    
+    const searchText =searchField.value;
+    cardAll(searchText)
 }
 
 const spinner =(isLoading)=>{
@@ -159,9 +142,9 @@ const spinner =(isLoading)=>{
     }
 }
 
-
+searchBtn();
 
 newCard();
 
 
-cardAll();
+// cardAll();
