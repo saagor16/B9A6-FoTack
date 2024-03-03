@@ -130,15 +130,18 @@ const searchBtn = ()=>{
     spinner(true);
     const searchField = document.getElementById('searchId');
     const searchText =searchField.value;
-    cardAll(searchText)
+    cardAll(searchText);
 }
 
 const spinner =(isLoading)=>{
     const loadingField = document.getElementById('loading');
     if(isLoading){
         loadingField.classList.remove('hidden');
+       
     }else{
-        loadingField.classList.add('hidden');
+        setTimeout(() => {
+            loadingField.classList.add('hidden');
+        }, 2000);
     }
 }
 
