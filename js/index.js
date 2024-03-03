@@ -6,7 +6,7 @@ const cardAll = async ()=> {
     const allPost = post.posts;
   
     const newContainer = document.getElementById('input-card');
-    newContainer.textContent='';
+    newContainer.innerHTML='';
     allPost.forEach((items) => {
     const newDiv = document.createElement('div');
         
@@ -129,8 +129,9 @@ const newCard = async()=>{
 
 
 
-const btnText = async(text)=>{
-    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${text}`);
+const btnText = async(gory)=>{
+
+    const res = await fetch(` https://openapi.programming-hero.com/api/retro-forum/posts?category=${gory}`);  
     const code = await res.json();
     const result = code.category;
     cardAll(result);
@@ -138,12 +139,25 @@ const btnText = async(text)=>{
 
 
 const searchBtn = ()=>{
+    
     const searchField = document.getElementById('searchId');
-    const text =searchField.value;
-    btnText(text); 
+    const gory =searchField.value;
+    if(gory){
+        btnText(gory);
+    }else{
+        alert('plz write category');
+    }
+    
 }
 
-
+const spinner =(isLoading)=>{
+    const loadingField = document.getElementById('loading');
+    if(isLoading){
+        loadingField.classList.remove('hidden');
+    }else{
+        loadingField.classList.add('hidden');
+    }
+}
 
 
 
