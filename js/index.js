@@ -52,22 +52,23 @@ const cardAll = async (newText)=> {
         </div>
     </div>
         `;
+        const span = newDiv.querySelector("#clr");
+
+        const total = items.isActive;
+        
+        if (total === true) {  
+            span.classList.remove("badge-secondary");
+            span.classList.add("badge-success");  
+            
+        } else {
+            span.classList.remove("badge-success");
+            span.classList.add("badge-secondary");
+        }
         newContainer.appendChild(newDiv);
         const btn = newDiv.querySelector('.my-btn');
         btn.addEventListener('click', () =>{
             
-            const span = newDiv.querySelector("#clr");
-
-            const total = items.isActive;
-            
-            if (total === true) {  
-                span.classList.remove("badge-secondary");
-                span.classList.add("badge-success");  
-                
-            } else {
-                span.classList.remove("badge-success");
-                span.classList.add("badge-secondary");
-            }
+           
 
             count = count+1;
         document.getElementById('markCount').innerText = count;
