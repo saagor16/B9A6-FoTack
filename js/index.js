@@ -23,7 +23,7 @@ const cardAll = async (newText)=> {
             </div>
       </div>
             <div class="space-y-5 w-full">
-                <div class="flex gap-8 text-xl font-medium">
+                <div class="flex lg:gap-10 gap-5 lg:text-xl font-medium">
                     <p># <span>${items.category}</span></p>
                     <p>Author : ${items.author.name}</p>
                 </div>
@@ -39,7 +39,7 @@ const cardAll = async (newText)=> {
                             <img src="images/eye.png" alt="">
                             <p>${items.view_count}</p>
                         </div>
-                        <div class="flex gap-2">
+                        <div class="flex lg:gap-2">
                             <img src="images/time.png" alt="">
                             <p><span>${items.posted_time}</span> min</p>
                         </div> 
@@ -115,7 +115,7 @@ const newCard = async()=>{
                       <p>${element.description}.</p>
                       <div class="flex flex-col lg:flex-row justify-start items-center gap-5">
                         <div class="rounded-full border">
-                          <img class="h-40 w-40 lg:h-20 lg:w-20" src="${element.profile_image}" alt="">
+                          <img class="h-40 w-40 lg:h-20 lg:w-20 " src="${element.profile_image}" alt="">
                         </div>
                         <p> <span class="text-xl font-semibold">${element.author.name}</span> <br> <span>${element.author.designation ? element.author.designation:'unknown'}</span> </p>
                         <p></p>
