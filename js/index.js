@@ -19,7 +19,7 @@ const cardAll = async (newText)=> {
         <div class="indicator w-[20%] h-[20%] m-5">
         <span id="clr" class="indicator-item badge badge-secondary"></span> 
         <div class="">
-                <img src="${items.image}" alt="">
+                <img class="rounded-xl" src="${items.image}" alt="">
             </div>
       </div>
             <div class="space-y-5 w-full">
