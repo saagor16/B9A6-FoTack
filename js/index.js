@@ -76,7 +76,7 @@ const cardAll = async (newText)=> {
             const addDiv = document.createElement('div');
             addDiv.innerHTML=`
             <div class="m-5">
-            <div class="flex justify-between p-5 bg-white rounded-xl w-[100%] h-[90px]">
+            <div class="flex justify-between p-5 bg-white rounded-xl w-[100%] h-[90px] items-center">
               <p class="text-xl font-semibold">${items.title}</p>
             <div class="flex gap-2 items-center">
                 <img src="images/eye.png" alt="">
@@ -111,7 +111,7 @@ const newCard = async()=>{
                         <p>${element.author.posted_date ? element.author.posted_date : 'No publish date'}</p>
                       </div>
                       <p class="font-bold">${element.title}</p>
-                      <p>${element.description }.</p>
+                      <p>${element.description.slice(0,25)}.</p>
                       <div class="flex justify-start items-center gap-5">
                         <div class="rounded-full border">
                           <img class="h-20" src="${element.profile_image}" alt="">
