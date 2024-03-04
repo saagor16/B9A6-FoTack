@@ -15,11 +15,11 @@ const cardAll = async (newText)=> {
         newDiv.innerHTML = `
         <div class="rounded-xl bg-gray-300 min-h-full  lg:h-[300px] pt-5
         lg:w-[95%] mt-5">
-        <div class="flex space-y-5">
-        <div class="indicator w-[20%] h-[20%] m-5">
+        <div class="flex flex-col lg:flex-row space-y-5 m-10 lg:m-4">
+        <div class="indicator w-full h-full lg:w-[20%] lg:h-[20%] lg:m-5">
         <span id="clr" class="indicator-item badge badge-secondary"></span> 
         <div class="">
-                <img class="rounded-xl" src="${items.image}" alt="">
+                <img class="rounded-xl " src="${items.image}" alt="">
             </div>
       </div>
             <div class="space-y-5 w-full">
@@ -106,18 +106,18 @@ const newCard = async()=>{
                     <div class="">
                       <img src="${element.cover_image}" alt="">
                     </div>
-                    <div class="space-y-5">
+                    <div class="space-y-5 text-center lg:text-start">
                       <div class="flex items-center justify-start gap-2">
                         <img src="images/last.png" alt="">
                         <p>${element.author.posted_date ? element.author.posted_date : 'No publish date'}</p>
                       </div>
                       <p class="font-bold">${element.title}</p>
-                      <p>${element.description.slice(0,25)}.</p>
-                      <div class="flex justify-start items-center gap-5">
+                      <p>${element.description}.</p>
+                      <div class="flex flex-col lg:flex-row justify-start items-center gap-5">
                         <div class="rounded-full border">
-                          <img class="h-20" src="${element.profile_image}" alt="">
+                          <img class="h-40 w-40 lg:h-20 lg:w-20" src="${element.profile_image}" alt="">
                         </div>
-                        <p>${element.author.name}<br> <span>${element.author.designation ? element.author.designation:'unknown'}</span> </p>
+                        <p> <span class="text-xl font-semibold">${element.author.name}</span> <br> <span>${element.author.designation ? element.author.designation:'unknown'}</span> </p>
                         <p></p>
                       </div>
          
