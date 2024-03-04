@@ -1,13 +1,15 @@
 let count = 0;
 
 const cardAll = async (newText)=> {
+    
     const apiLink = await fetch(` https://openapi.programming-hero.com/api/retro-forum/posts?category=${newText}`);
     const post = await apiLink.json();
     const allPost = post.posts;
   
     const newContainer = document.getElementById('input-card');
     newContainer.textContent="";
-    allPost.forEach((items) => {
+    allPost.forEach((items) => { 
+    
     const newDiv = document.createElement('div');
         
         newDiv.innerHTML = `
@@ -86,7 +88,7 @@ const cardAll = async (newText)=> {
             btnDiv.appendChild(addDiv);
         });
         
-    });spinner(false);
+    });    spinner(false);
 }
 
 
@@ -131,6 +133,8 @@ const searchBtn = ()=>{
     const searchField = document.getElementById('searchId');
     const searchText =searchField.value;
     cardAll(searchText);
+    
+    
 }
 
 const spinner =(isLoading)=>{
